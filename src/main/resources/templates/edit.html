@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Task</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+           background: linear-gradient(135deg, #e0eafc, #cfdef3);
+        }
+
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <div class="card p-4">
+
+        <h3>Edit Task</h3>
+
+        <form action="/tasks/update" method="post">
+
+            <input type="hidden" name="id" th:value="${task.id}">
+
+            <input type="text" name="name" class="form-control mb-3" th:value="${task.name}">
+
+            <select name="status" class="form-select mb-3">
+                <option value="PENDING" th:selected="${task.status == 'PENDING'}">PENDING</option>
+                <option value="DONE" th:selected="${task.status == 'DONE'}">DONE</option>
+            </select>
+
+            <button class="btn btn-success">Update</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
