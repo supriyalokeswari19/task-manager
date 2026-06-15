@@ -16,6 +16,10 @@ public class HelloController {
     public HelloController(TaskService service) {
         this.service = service;
     }
+    @GetMapping("/")
+public String home() {
+    return "redirect:/dashboard";
+}
 
     // DASHBOARD
     @GetMapping("/dashboard")
@@ -72,4 +76,5 @@ public class HelloController {
         service.update(id, name, status);
         return "redirect:/tasks";
     }
+    
 }
